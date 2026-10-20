@@ -1,0 +1,523 @@
+
+/* ==================================================
+   LAB3WEB — PRAKTIKUM 3 CSS DASAR
+   Modern Responsive UI
+   ================================================== */
+
+
+/* 1. GLOBAL RESET & DESIGN TOKENS */
+
+:root {
+    --primary: #16794b;
+    --primary-dark: #0c5836;
+    --primary-light: #e5f5ec;
+
+    --blue: #286b91;
+    --blue-light: #4398bc;
+
+    --red: #e63950;
+    --red-dark: #bd233b;
+
+    --text: #26364a;
+    --muted: #718096;
+    --white: #ffffff;
+
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+    --shadow-card:
+        0 20px 50px rgba(35, 73, 100, 0.13);
+
+    --transition:
+        all 0.25s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(67, 152, 188, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 95% 90%,
+            rgba(22, 121, 75, 0.10),
+            transparent 28%
+        ),
+        #f4f7fb;
+
+    line-height: 1.7;
+}
+
+
+/* 2. HEADER */
+
+header {
+    position: relative;
+    padding: 32px 20px 27px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #e4ebf2;
+
+    box-shadow:
+        0 4px 18px rgba(36, 58, 80, 0.04);
+}
+
+header h1 {
+    margin: 0;
+
+    color: #172b8f;
+
+    font-size: clamp(25px, 3vw, 36px);
+
+    font-weight: 800;
+
+    line-height: 1.35;
+
+    letter-spacing: -0.7px;
+}
+
+header h1 i {
+    color: #718096;
+    font-weight: 600;
+}
+
+header::after {
+    content: "PRAKTIKUM 03  /  PEMROGRAMAN WEB";
+
+    display: block;
+
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+}
+
+
+/* 3. NAVIGATION */
+
+nav {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 20px;
+
+    background:
+        linear-gradient(
+            110deg,
+            var(--primary-dark),
+            var(--primary),
+            #23935d
+        );
+
+    box-shadow:
+        0 7px 20px rgba(12, 88, 54, 0.16);
+}
+
+nav a {
+    display: inline-block;
+
+    padding: 10px 19px;
+
+    border: 1px solid transparent;
+
+    border-radius: 9px;
+
+    color: var(--white);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--white);
+
+    background: rgba(255, 255, 255, 0.16);
+
+    border-color: rgba(255, 255, 255, 0.25);
+
+    transform: translateY(-2px);
+}
+
+nav .active {
+    background: rgba(255, 255, 255, 0.18);
+
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* 4. MAIN CONTENT CARD — ID SELECTOR */
+
+#intro {
+    position: relative;
+
+    isolation: isolate;
+
+    overflow: hidden;
+
+    width: calc(100% - 48px);
+
+    max-width: 960px;
+
+    min-height: 300px;
+
+    margin: 48px auto;
+
+    padding: 38px 42px;
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+
+    border-left: 6px solid #f5c75e;
+
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-light) 0%,
+            var(--blue) 100%
+        );
+
+    box-shadow: var(--shadow-card);
+
+    transition: var(--transition);
+}
+
+#intro::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    top: -105px;
+
+    right: -75px;
+
+    width: 260px;
+
+    height: 260px;
+
+    border: 35px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+#intro::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    right: 75px;
+
+    bottom: -145px;
+
+    width: 220px;
+
+    height: 220px;
+
+    border: 30px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+#intro:hover {
+    box-shadow:
+        0 25px 55px rgba(35, 73, 100, 0.19);
+
+    transform: translateY(-3px);
+}
+
+
+/* 5. HEADING INSIDE THE CARD */
+
+#intro h1 {
+    position: relative;
+
+    margin: 0 0 22px;
+
+    padding: 0;
+
+    border: 0;
+
+    color: var(--white);
+
+    font-size: clamp(27px, 3vw, 34px);
+
+    font-weight: 800;
+
+    text-align: left;
+
+    line-height: 1.3;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* 6. PARAGRAPH */
+
+#intro p {
+    position: relative;
+
+    margin: 0 0 28px;
+
+    color: #eaf5fb;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+/*
+   Inline CSS pada tag <p> tetap dipertahankan
+   untuk memenuhi latihan Inline CSS pada modul.
+*/
+
+
+/* 7. BUTTON — CLASS SELECTOR */
+
+.button {
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 4px 0 0;
+
+    padding: 14px 23px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 10px;
+
+    background: #65758a;
+
+    color: var(--white);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 6px 15px rgba(20, 35, 50, 0.16);
+
+    transition: var(--transition);
+}
+
+
+/* PRIMARY BUTTON */
+
+.btn-primary {
+    background:
+        linear-gradient(
+            135deg,
+            #f0445a,
+            var(--red)
+        );
+
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button:hover,
+.button:focus-visible {
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--red-dark)
+        );
+
+    box-shadow:
+        0 11px 24px rgba(190, 25, 48, 0.25);
+
+    transform: translateY(-3px);
+}
+
+.button:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 4px 10px rgba(190, 25, 48, 0.18);
+}
+
+
+/* 8. KEYBOARD ACCESSIBILITY */
+
+a:focus-visible {
+    outline: 3px solid #f5c75e;
+
+    outline-offset: 3px;
+}
+
+
+/* 9. RESPONSIVE LAYOUT — TABLETS */
+
+@media (max-width: 768px) {
+    header {
+        padding: 27px 16px 23px;
+    }
+
+    nav {
+        gap: 6px;
+
+        padding: 12px 10px;
+    }
+
+    nav a {
+        padding: 10px 13px;
+
+        font-size: 13px;
+    }
+
+    #intro {
+        width: calc(100% - 36px);
+
+        min-height: 0;
+
+        margin: 32px auto;
+
+        padding: 30px;
+    }
+
+    #intro h1 {
+        font-size: 28px;
+    }
+}
+
+
+/* 10. RESPONSIVE LAYOUT — MOBILE */
+
+@media (max-width: 480px) {
+    header {
+        padding: 23px 12px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header::after {
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+    nav {
+        gap: 5px;
+
+        padding: 10px 7px;
+    }
+
+    nav a {
+        padding: 9px 10px;
+
+        font-size: 12px;
+
+        border-radius: 7px;
+    }
+
+    #intro {
+        width: calc(100% - 28px);
+
+        margin: 24px auto;
+
+        padding: 25px 21px;
+
+        border-left-width: 4px;
+
+        border-radius: 15px;
+    }
+
+    #intro h1 {
+        margin-bottom: 18px;
+
+        font-size: 25px;
+    }
+
+    #intro p {
+        margin-bottom: 23px;
+
+        font-size: 14px;
+
+        line-height: 1.85;
+    }
+
+    .button {
+        padding: 12px 17px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* 11. REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}

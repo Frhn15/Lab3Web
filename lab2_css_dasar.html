@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Dasar | Praktikum 3</title>
+
+    <!-- CSS Internal -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #26364a;
+        }
+
+        header {
+            min-height: 100px;
+            background-color: #ffffff;
+            border-bottom: 3px solid #16794b;
+        }
+
+        header h1 {
+            font-size: 32px;
+            color: #172b8f;
+            text-align: center;
+            padding: 24px 10px;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 i {
+            color: #16794b;
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- CSS Eksternal -->
+    <link rel="stylesheet"
+          href="style_eksternal.css"
+          type="text/css">
+</head>
+
+<body>
+    <header>
+        <h1>CSS Internal dan <i>Inline CSS</i></h1>
+    </header>
+
+    <!-- Navigasi -->
+    <nav>
+        <a href="lab2_css_dasar.html">CSS Dasar</a>
+        <a href="lab2_css_eksternal.html">CSS Eksternal</a>
+        <a href="lab1_tag_dasar.html">HTML Dasar</a>
+    </nav>
+
+    <!-- ID Selector -->
+    <div id="intro">
+        <h1>Hello World</h1>
+
+        <!-- Inline CSS -->
+        <p style="text-align: center; color: #eaf5fb;">
+            Kami sedang belajar HTML dan CSS dasar, pada mata kuliah
+            <b>Pemrograman Web</b> di
+            <i>Universitas Pelita Bangsa</i>.
+            Pelajaran pertama yang kami dapat adalah membuat tampilan
+            web sederhana dalam rangka mengenal tag-tag dasar HTML
+            dan CSS.
+        </p>
+
+        <!-- Class Selector -->
+        <a class="button btn-primary" href="#intro">
+            Informasi selengkapnya.
+        </a>
+    </div>
+</body>
+</html>
